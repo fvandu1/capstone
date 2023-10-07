@@ -20,8 +20,6 @@ function init() {
 }
 
 function draw(ctx,x,y,isDown) {
-    lastX = x; 
-    lastY = y; 
 
     if (isDown) {   
         ctx.beginPath();
@@ -33,6 +31,9 @@ function draw(ctx,x,y,isDown) {
         ctx.closePath();   
         ctx.stroke();    
     }   
+    lastX = x; 
+    lastY = y; 
+
 }
 
 
@@ -95,7 +96,7 @@ document.getElementById('clear_button').addEventListener("click",
 
 (async function(){  
     console.log("model loading...");  
-    model = await tf.loadLayersModel("https://github.com/fvandu1/capstone/resources/model/model.json");
+    model = await tf.loadLayersModel("https://fvandu1.github.io/capstone/resources/model/model.json");
     console.log("model loaded..");
 })();
 
