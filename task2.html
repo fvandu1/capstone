@@ -1,0 +1,87 @@
+<html wtx-context="6232ECC6-EF8E-47BE-BD85-98B89F390371">
+  <head>
+      <title>Capstone</title>
+  
+      <meta name="viewport" content="width=device-width">
+      <!-- GoogleFont -->
+      <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@600&amp;display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Varela+Round&amp;display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&amp;display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Calistoga|Josefin+Sans:400,700|Pacifico&amp;display=swap" rel="stylesheet">
+      <!-- bootstrap -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- stylesheet -->
+      <link rel="stylesheet" href="./resources/css/style.css">
+      <!-- fontawesome -->
+      <script src="https://kit.fontawesome.com/b3aed9cb07.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  
+  </head>
+  
+  <body onload="init()">
+  
+   
+    <h1 class="welcome">Capstone project</h1>
+    <section id="description">
+      <h1 class="heading">Single number recognition app</h1>
+      <p>The system consists of the MNIST dataset trained on a convolutional neural network. The MNIST dataset is a well known dataset of 
+        single digit numbers. The trained model is then used in a javascript file and this web page was created to make predictions of hand
+        drawn numbers. Here is a set of samples of the MNIST dataset.
+      </p>
+      <img src="./resources/photos/mnist_samples.png" class="visuals">
+      <p>The code used to plot these sample images is here. It uses the matplotlib package.</p>
+      <img src="./resources/photos/sample_code.png" >
+      <p>This method seems to give a yellowish tint to the pictures. As you can see from this histogram though the image is essentially
+        black and white
+      </p>
+      <img src="./resources/photos/mnist_sample_pixel_distribution.png" class="visuals">
+      <p>This histogram represents the pixel value of every pixel in a single sample. As you can see the majority of the sample has pixel
+        value of 0 which is black. And the rest is about 1 which is white. 
+      </p>
+      <br>
+      <p>The dataset can be grouped using the t-SNE technique and plotted with a scatterplot to get a better idea of the distribution of
+        features in each class of the dataset.
+      </p>
+      <img src="./resources/photos/t-sne.png" class="visuals">
+      <p>As stated before this data is then trianed using a convolutional neural network. A visual representation of the model is shown below</p>
+      <img src="./resources/photos/model.png" class="model visuals">
+      <p>This model is then used to train the data. That trained model is then stored and used in a canvas below. You can drawn in a number
+        and the model will use that image to make a prediction.
+      </p>
+    </section>
+
+    <section id="application">
+      <div id="sketchpadapp">
+  
+        <div class="row">
+          <div class="leftside">
+  
+            <div class="">
+              <canvas id="sketchpad" height="200" width="200">
+              </canvas>
+            </div>
+
+            <div class="buttons_div">
+              <button type="button" class="btn btn-dark" id="predict_button">Predict</button>
+              <button type="button" class="btn btn-dark" id="clear_button">&nbsp; Clear &nbsp;</button>
+            </div>
+          </div>
+
+          <div class="predicted_answer col-sm-6">
+            <h2 id="prediction_heading">Prediction</h2>
+            <h1 id="result">-</h1>
+            <p id="confidence">Confidence: -</p>
+          </div>
+
+        </div>
+      </div>
+    </section>  
+  
+    <script src="./resources/js/main.js" charset="utf-8"></script>
+  
+  </body>
+</html>
